@@ -1,0 +1,15 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "allowSyntheticDefaultImports": true,
+    "typeRoots": [
+      "./types"
+    ],
+  },
+  "include": [
+    "./src/**/*.*",
+    "../../types/*.d.ts"
+  ],
+  "references": []
+}

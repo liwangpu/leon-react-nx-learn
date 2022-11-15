@@ -1,0 +1,42 @@
+{
+  "name": "my-library",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/my-library/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:webpack",
+      "outputs": [
+        "{options.outputPath}"
+      ],
+      "options": {
+        "outputPath": "dist/libs/my-library",
+        "tsConfig": "libs/my-library/tsconfig.json",
+        "main": "libs/my-library/src/index.ts",
+        "index":"",
+        "sourceMap": false,
+        "generateIndexHtml": false,
+        "webpackConfig": "libs/my-library/webpack.config.js",
+        "compiler": "babel",
+        "assets": []
+      },
+      "configurations": {
+        "development": {
+          "extractLicenses": false,
+          "optimization": false,
+          "sourceMap": true,
+          "vendorChunk": true
+        },
+        "production": {
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": false,
+          "vendorChunk": false
+        }
+      }
+    }
+  },
+  "tags": []
+}
