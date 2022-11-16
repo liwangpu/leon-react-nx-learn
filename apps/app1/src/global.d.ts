@@ -1,1 +1,1 @@
-declare module 'my-library/tool';
+declare module 'my-library/button';

@@ -1,7 +1,7 @@
 module.exports = {
   name: 'my-library',
   exposes: {
-    './tool': './src/tool.ts',
+    './button': './src/components/Button/index.tsx',
   },
   // shared: {
   //   "@nrwl/react": {

@@ -48,7 +48,9 @@
       "defaultConfiguration": "development",
       "options": {
         "buildTarget": "my-library:build",
-        "hmr": false,
+        "hmr": true,
+        "watch": true,
+        "liveReload": true,
         "port": 7001
       },
       "configurations": {
