@@ -13,18 +13,21 @@
         "outputPath": "dist/libs/my-library",
         "tsConfig": "libs/my-library/tsconfig.json",
         "main": "libs/my-library/src/index.ts",
-        "index":"",
+        "index": "",
         "sourceMap": false,
         "generateIndexHtml": false,
         "webpackConfig": "libs/my-library/webpack.config.js",
         "compiler": "babel",
-        "assets": []
+        "assets": [],
+        "external": [
+          "react"
+        ]
       },
       "configurations": {
         "development": {
           "extractLicenses": false,
           "optimization": false,
-          "sourceMap": true,
+          "sourceMap": false,
           "vendorChunk": true
         },
         "production": {
@@ -34,6 +37,43 @@
           "namedChunks": false,
           "extractLicenses": false,
           "vendorChunk": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/react:module-federation-dev-server",
+      "outputs": [
+        "{options.outputFile}"
+      ],
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "my-library:build",
+        "hmr": false,
+        "port": 7001
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "my-library:build:development"
+        },
+        "production": {
+          "buildTarget": "my-library:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "serve-static": {
+      "executor": "@nrwl/web:file-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "my-library:build",
+        "port": 7001
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "my-library:build:development"
+        },
+        "production": {
+          "buildTarget": "my-library:build:production"
         }
       }
     }
