@@ -9,6 +9,7 @@
       "outputs": [
         "{options.outputPath}"
       ],
+      "defaultConfiguration": "production",
       "options": {
         "outputPath": "dist/libs/my-library",
         "tsConfig": "libs/my-library/tsconfig.json",
@@ -19,9 +20,7 @@
         "webpackConfig": "libs/my-library/webpack.config.js",
         "compiler": "babel",
         "assets": [],
-        "external": [
-          "react"
-        ]
+        "external": ["react/jsx-runtime"]
       },
       "configurations": {
         "development": {
