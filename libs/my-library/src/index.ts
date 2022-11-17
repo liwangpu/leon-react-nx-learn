@@ -1,1 +1,1 @@
-export const t1 = 1;
+export * from './components/Button';
