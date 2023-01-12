@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
-  "npmScope": "react-nx-learn",
+  "npmScope": "myorg",
   "affected": {
     "defaultBase": "master"
   },
@@ -9,7 +9,7 @@
       "runner": "@nrwl/nx-cloud",
       "options": {
         "cacheableOperations": ["build", "lint", "test", "e2e"],
-        "accessToken": "MTJmYzk4OGItMjg5MC00MTYyLTljNzgtNWEwNTIxMTNhY2U5fHJlYWQtd3JpdGU="
+        "accessToken": "ZDM3NGNhODgtMWRmYi00ODMyLTg3OTctZDFiODFmODZjNGM5fHJlYWQtd3JpdGU="
       }
     }
   },
@@ -18,14 +18,14 @@
       "dependsOn": ["^build"],
       "inputs": ["production", "^production"]
     },
+    "e2e": {
+      "inputs": ["default", "^production"]
+    },
     "lint": {
       "inputs": ["default", "{workspaceRoot}/.eslintrc.json"]
     },
     "test": {
       "inputs": ["default", "^production", "{workspaceRoot}/jest.preset.js"]
-    },
-    "e2e": {
-      "inputs": ["default", "^production"]
     }
   },
   "namedInputs": {
@@ -37,13 +37,14 @@
       "!{projectRoot}/tsconfig.spec.json",
       "!{projectRoot}/jest.config.[jt]s"
     ],
-    "sharedGlobals": []
+    "sharedGlobals": ["{workspaceRoot}/babel.config.json"]
   },
   "generators": {
     "@nrwl/react": {
       "application": {
         "style": "less",
         "linter": "eslint",
+        "bundler": "webpack",
         "babel": true
       },
       "component": {
@@ -51,9 +52,9 @@
       },
       "library": {
         "style": "less",
-        "linter": "eslint"
+        "linter": "eslint",
+        "unitTestRunner": "none"
       }
     }
-  },
-  "defaultProject": "app1"
+  }
 }
